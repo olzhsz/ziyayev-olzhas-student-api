@@ -26,6 +26,10 @@ public class Student {
     protected Student() { }
 
     public Student(StudentRequest request) {
+        updateFrom(request);
+    }
+
+    public void updateFrom(StudentRequest request) {
         this.fullName = request.fullName().trim();
         this.groupName = request.groupName().trim();
         this.email = request.email().trim();
