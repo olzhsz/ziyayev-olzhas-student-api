@@ -51,6 +51,36 @@ class StudentApiTests {
     }
 
     @Test
+    void updatesStudentAndPersistsTheChange() throws Exception {
+        Student student = saveStudent();
+        String updated = """
+                {"fullName":"Ziyayev Olzhas Updated","groupName":"IT2-2302","email":"updated@example.com"}
+                """;
+        mvc.perform(put(BASE + "/" + student.getId()).contentType(MediaType.APPLICATION_JSON).content(updated))
+                .andExpect(status().isOk()).andExpect(jsonPath("$.id").value(student.getId()))
+                .andExpect(jsonPath("$.fullName").value("Ziyayev Olzhas Updated"));
+        mvc.perform(get(BASE + "/" + student.getId())).andExpect(status().isOk())
+                .andExpect(jsonPath("$.email").value("updated@example.com"));
+    }
+
+    @Test
+    void updateMissingStudentReturns404AndDoesNotInsert() throws Exception {
+        mvc.perform(put(BASE + "/9223372036854775807").contentType(MediaType.APPLICATION_JSON).content(BODY))
+                .andExpect(status().isNotFound());
+        mvc.perform(get(BASE)).andExpect(jsonPath("$", hasSize(0)));
+    }
+
+    @Test
+    void invalidUpdateDoesNotChangeStoredRecord() throws Exception {
+        Student student = saveStudent();
+        mvc.perform(put(BASE + "/" + student.getId()).contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"fullName\":\"\",\"groupName\":\"IT2-2302\",\"email\":\"bad\"}"))
+                .andExpect(status().isBadRequest());
+        mvc.perform(get(BASE + "/" + student.getId()))
+                .andExpect(jsonPath("$.fullName").value("Ziyayev Olzhas"));
+    }
+
+    @Test
     void deletesStudentAndReturns404Afterwards() throws Exception {
         Student student = saveStudent();
         mvc.perform(delete(BASE + "/" + student.getId())).andExpect(status().isNoContent());

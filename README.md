@@ -38,6 +38,7 @@ Base URL: `http://localhost:8080/api/ziyayev-olzhas/students`.
 | POST | (none) | Create student, HTTP 201 and Location |
 | GET | (none) | List students, HTTP 200 |
 | GET | /{id} | Get student, HTTP 200 or 404 |
+| PUT | /{id} | Update an existing student, HTTP 200, 400 or 404 |
 | DELETE | /{id} | Delete student, HTTP 204 or 404 |
 
 Example body (the email is sample test data):
@@ -47,6 +48,11 @@ Example body (the email is sample test data):
 ```
 
 ## Build and tests
+
+Personal feature by Ziyayev Olzhas: PUT validates incoming fields, updates the
+existing record transactionally and returns 404 without inserting a new record
+when the ID is absent. Regression tests cover successful persistence, a missing
+record and rejection of invalid updates without changing stored data.
 
 Requires a working JDK 21. Database-free tests use an isolated H2 database
 in PostgreSQL compatibility mode. Real PostgreSQL is used in Compose;
