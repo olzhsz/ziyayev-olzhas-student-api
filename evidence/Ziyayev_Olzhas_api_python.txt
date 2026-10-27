@@ -1,0 +1,24 @@
+API verification: Ziyayev Olzhas | IT2-2302 | http://localhost:18080/api/ziyayev-olzhas
+GET / -> HTTP 200 (expected 200)
+{"group":"IT2-2302","application":"ziyayev-olzhas-student-api","student":"Ziyayev Olzhas","github":"https://github.com/olzhsz"}
+POST /students -> HTTP 201 (expected 201)
+{"id":1,"fullName":"Ziyayev Olzhas","groupName":"IT2-2302","email":"olzhas@example.com"}
+GET /students -> HTTP 200 (expected 200)
+[{"id":1,"fullName":"Ziyayev Olzhas","groupName":"IT2-2302","email":"olzhas@example.com"}]
+GET /students/1 -> HTTP 200 (expected 200)
+{"id":1,"fullName":"Ziyayev Olzhas","groupName":"IT2-2302","email":"olzhas@example.com"}
+PUT /students/1 -> HTTP 200 (expected 200)
+{"id":1,"fullName":"Ziyayev Olzhas Updated","groupName":"IT2-2302","email":"updated@example.com"}
+GET /students/1 -> HTTP 200 (expected 200)
+{"id":1,"fullName":"Ziyayev Olzhas Updated","groupName":"IT2-2302","email":"updated@example.com"}
+POST /students -> HTTP 400 (expected 400)
+{"type":"about:blank","title":"Bad Request","status":400,"detail":"Invalid student data","instance":"/api/ziyayev-olzhas/students","errors":{"groupName":"must not be blank","fullName":"must not be blank","email":"must be a well-formed email address"}}
+DELETE /students/1 -> HTTP 204 (expected 204)
+(empty body)
+GET /students/1 -> HTTP 404 (expected 404)
+{"type":"about:blank","title":"Not Found","status":404,"detail":"Student with id 1 was not found","instance":"/api/ziyayev-olzhas/students/1"}
+PUT /students/1 -> HTTP 404 (expected 404)
+{"type":"about:blank","title":"Not Found","status":404,"detail":"Student with id 1 was not found","instance":"/api/ziyayev-olzhas/students/1"}
+DELETE /students/1 -> HTTP 404 (expected 404)
+{"type":"about:blank","title":"Not Found","status":404,"detail":"Student with id 1 was not found","instance":"/api/ziyayev-olzhas/students/1"}
+All API checks passed.

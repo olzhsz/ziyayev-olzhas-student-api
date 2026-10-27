@@ -195,6 +195,10 @@ The script checks create (201), list (200), get by ID (200), update (200), inval
 data (400), delete (204) and subsequent missing-record operations (404). It
 captures the generated ID from the Location header instead of assuming ID 1.
 Output is saved to `evidence/Ziyayev_Olzhas_api_tests.txt`.
+On Windows, the same HTTP checks can be run without a Bash shell:
+`py scripts/test_api.py`. Its log is `evidence/Ziyayev_Olzhas_api_python.txt`.
+The supplied local log used an isolated H2 demonstration runtime on port 18080;
+rerun against the Compose API on port 8080 for PostgreSQL/container evidence.
 
 ## Part 4 — Jenkins CI/CD
 

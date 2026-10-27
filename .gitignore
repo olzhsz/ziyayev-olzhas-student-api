@@ -3,6 +3,8 @@ build/
 .idea/
 .vscode/
 *.iml
+__pycache__/
+*.pyc
 .env
 .env.*
 !.env.example
