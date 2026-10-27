@@ -6,7 +6,7 @@ GitHub: https://github.com/olzhsz
 
 Repository target: https://github.com/olzhsz/ziyayev-olzhas-student-api
 
-Documentation status: initial project description.
+Documentation status: Ziyayev Olzhas documents the personalized CRUD API and validation.
 
 Spring Boot REST API for the DevOps midterm: Java 21, Gradle Wrapper 8.13,
 PostgreSQL 16, Docker Compose and Jenkins. This is a local educational API;
