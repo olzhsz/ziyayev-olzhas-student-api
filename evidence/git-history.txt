@@ -1,0 +1,22 @@
+﻿* a2b65ac (HEAD -> main, tag: v1.0-ziyayev-olzhas) Ziyayev Olzhas: verify eleven tests and HTTP CRUD and document remaining demonstrations
+| * d75aab0 (feature/ziyayev-olzhas-ci-demo) Ziyayev Olzhas: fix controlled failure and restore passing CI configuration
+| * 7c39299 Ziyayev Olzhas: introduce controlled test failure on CI demo branch
+|/  
+*   b7ebc2c Ziyayev Olzhas: resolve README conflict by combining API and DevOps descriptions
+|\  
+| * 3c4d747 (feature/ziyayev-olzhas-documentation) Ziyayev Olzhas: explain personalized CRUD documentation
+* | ce80b5f Ziyayev Olzhas: describe Docker and Jenkins documentation
+|/  
+*   76d8ee1 Ziyayev Olzhas: merge CRUD feature and regression tests
+|\  
+| * 13dc929 (feature/ziyayev-olzhas-crud) Ziyayev Olzhas: test update persistence and document CRUD behavior
+| * 1cdcbce Ziyayev Olzhas: implement validated student update operation
+|/  
+* d990053 Initial commit: Ziyayev Olzhas Student API
+  feature/ziyayev-olzhas-ci-demo       d75aab0 Ziyayev Olzhas: fix controlled failure and restore passing CI configuration
+  feature/ziyayev-olzhas-crud          13dc929 Ziyayev Olzhas: test update persistence and document CRUD behavior
+  feature/ziyayev-olzhas-documentation 3c4d747 Ziyayev Olzhas: explain personalized CRUD documentation
+* main                                 a2b65ac Ziyayev Olzhas: verify eleven tests and HTTP CRUD and document remaining demonstrations
+origin	https://github.com/olzhsz/ziyayev-olzhas-student-api.git (fetch)
+origin	https://github.com/olzhsz/ziyayev-olzhas-student-api.git (push)
+v1.0-ziyayev-olzhas Ziyayev Olzhas IT2-2302 DevOps midterm v1.0
