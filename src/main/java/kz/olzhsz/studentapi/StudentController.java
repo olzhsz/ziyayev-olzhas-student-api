@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -45,6 +46,14 @@ public class StudentController {
     public ResponseEntity<Student> create(@Valid @RequestBody StudentRequest request) {
         Student saved = repository.save(new Student(request));
         return ResponseEntity.created(URI.create("/api/ziyayev-olzhas/students/" + saved.getId())).body(saved);
+    }
+
+    @PutMapping("/students/{id}")
+    @Transactional
+    public Student update(@PathVariable Long id, @Valid @RequestBody StudentRequest request) {
+        Student student = find(id);
+        student.updateFrom(request);
+        return repository.save(student);
     }
 
     @DeleteMapping("/students/{id}")
