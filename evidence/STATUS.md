@@ -13,6 +13,10 @@ Student: Ziyayev Olzhas | Group: IT2-2302 | Prepared: 27 October 2026
   delete, and missing-record GET/PUT/DELETE. This is HTTP/H2 evidence, not Docker
   or PostgreSQL evidence. The temporary runtime used localhost port 18080.
 - Real local Git commits and personal feature branches exist.
+- The project is published at https://github.com/olzhsz/ziyayev-olzhas-student-api
+  with main, the three personal feature branches and the release tag
+  `v1.0-ziyayev-olzhas`. Only project files are published; the Word report and
+  delivery ZIP are not included.
 - The README merge conflict occurred and was resolved in a real merge commit.
 - Official Gradle 8.13 wrapper JAR SHA256 matches the published checksum:
   `81a82aaea5abcc8ff68b3dfcb58b3c3c429378efd98e7433460610fecd7ae45f`.
@@ -37,10 +41,6 @@ Student: Ziyayev Olzhas | Group: IT2-2302 | Prepared: 27 October 2026
   current environment restrictions. The empty personal log is included; it is
   not a fabricated system report. Run `bash scripts/linux_demo.sh` on Linux/WSL
   to generate the report, analysis, actual permission listing and terminal evidence.
-- **GitHub:** a saved account name was found, but noninteractive Git authentication
-  did not provide a usable credential. `origin` is configured as the intended URL;
-  this does not mean a remote repository was created or pushed. Authenticate,
-  create the empty repository and follow the push commands in DEMONSTRATION.md.
 - **Docker/PostgreSQL:** Docker is not installed. Image build, container management,
   PostgreSQL connection/persistence and the version rebuild have not run. Use
   `scripts/docker_demo.sh` after installing Docker and configuring the local `.env`.
@@ -48,5 +48,5 @@ Student: Ziyayev Olzhas | Group: IT2-2302 | Prepared: 27 October 2026
   failed/fixed Jenkins builds and SCM-trigger history require a running Jenkins
   setup. A local Gradle failure is not a Jenkins console result.
 
-No screenshots or output are invented for pending demonstrations. See the
-English Word report and `docs/DEMONSTRATION.md` for completion instructions.
+No screenshots or output are invented for pending demonstrations. See
+`docs/DEMONSTRATION.md` for completion instructions.

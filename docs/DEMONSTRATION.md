@@ -105,7 +105,9 @@ Replace `<resolution-commit>` with the merge hash visible in `git log`.
 
 ### 2.4 Remote repository and tag
 
-The intended GitHub repository is `olzhsz/ziyayev-olzhas-student-api`.
+The published GitHub repository is `olzhsz/ziyayev-olzhas-student-api`.
+It contains main, the three personal feature branches and the release tag.
+The commands below also explain how to publish future changes or a new copy.
 An `origin` URL alone does not prove that a repository exists or has been pushed.
 If the GitHub repository has not been created, create an empty repository in your
 account with that exact name; do not initialize a second README or license.

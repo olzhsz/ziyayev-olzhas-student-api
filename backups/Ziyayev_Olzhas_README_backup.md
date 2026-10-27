@@ -4,7 +4,7 @@ Student: **Ziyayev Olzhas** · Group: **IT2-2302**
 
 GitHub: https://github.com/olzhsz
 
-Repository target: https://github.com/olzhsz/ziyayev-olzhas-student-api
+Repository: https://github.com/olzhsz/ziyayev-olzhas-student-api
 
 Documentation status: Ziyayev Olzhas documents the personalized CRUD API, validation, Docker and Jenkins workflow.
 
