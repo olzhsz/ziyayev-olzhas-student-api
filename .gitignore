@@ -1,0 +1,17 @@
+.gradle/
+build/
+.idea/
+.vscode/
+*.iml
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+logs/*
+!logs/.gitkeep
+evidence/*
+!evidence/.gitkeep
+!evidence/STATUS.md
+!evidence/git-conflict.txt
+!evidence/git-history.txt

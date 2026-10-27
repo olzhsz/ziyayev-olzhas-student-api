@@ -1,0 +1,47 @@
+name: ziyayev-olzhas-student-api
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: ziyayev-olzhas-postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-ziyayev_students}
+      POSTGRES_USER: ${POSTGRES_USER:-ziyayev_olzhas}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - student_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+    restart: unless-stopped
+
+  app:
+    build:
+      context: .
+    image: ziyayev-olzhas-student-api:${IMAGE_TAG:-v1.0-ziyayev-olzhas}
+    container_name: ziyayev-olzhas-student-api
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/${POSTGRES_DB:-ziyayev_students}
+      DB_USERNAME: ${POSTGRES_USER:-ziyayev_olzhas}
+      DB_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    ports:
+      - "127.0.0.1:${APP_PORT:-8080}:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - student_network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    name: ziyayev-olzhas-postgres-data
+
+networks:
+  student_network:
+    name: ziyayev-olzhas-network
