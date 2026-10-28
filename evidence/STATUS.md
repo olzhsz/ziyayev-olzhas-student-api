@@ -1,6 +1,6 @@
 # Evidence status
 
-Student: Ziyayev Olzhas | Group: IT2-2302 | Prepared: 27 October 2026
+Student: Ziyayev Olzhas | Group: IT2-2302 | Updated: 28 October 2026
 
 ## Verified locally
 
@@ -35,18 +35,44 @@ Student: Ziyayev Olzhas | Group: IT2-2302 | Prepared: 27 October 2026
 | git-history.txt | Local Git graph, branches, remote and release tag |
 | ../build/reports/tests/test/index.html | Final passing HTML test report |
 
-## Pending environment-dependent demonstrations
+## Verified in the student's WSL environment
 
-- **Linux:** WSL/Linux is not installed. Git Bash also cannot start under the
-  current environment restrictions. The empty personal log is included; it is
-  not a fabricated system report. Run `bash scripts/linux_demo.sh` on Linux/WSL
-  to generate the report, analysis, actual permission listing and terminal evidence.
-- **Docker/PostgreSQL:** Docker is not installed. Image build, container management,
-  PostgreSQL connection/persistence and the version rebuild have not run. Use
-  `scripts/docker_demo.sh` after installing Docker and configuring the local `.env`.
-- **Jenkins:** no controller/agent was supplied. Pipeline execution, the controlled
-  failed/fixed Jenkins builds and SCM-trigger history require a running Jenkins
-  setup. A local Gradle failure is not a Jenkins console result.
+The following results were reviewed from real screenshots saved separately in
+the submission workspace. Screenshot files are not included in this repository.
+The earlier Windows logs above remain separate from these Linux demonstrations.
 
-No screenshots or output are invented for pending demonstrations. See
-`docs/DEMONSTRATION.md` for completion instructions.
+- **Linux:** Ubuntu 26.04.1 under WSL 2, user `olzhik`. The personal system
+  report, process listing, disk/memory information, directory tree, `tail` and
+  name analysis were demonstrated. The script permission was `744`; the README
+  backup was compared successfully with `diff -s` (Screens 8, 9 and 11).
+- **Docker/PostgreSQL:** Docker Desktop WSL integration and Docker access without
+  `sudo` were demonstrated. The multi-stage image was built; the application and
+  healthy PostgreSQL container ran successfully. CRUD checks passed, including
+  expected validation/not-found responses; a saved record survived restarts
+  (Screens 15, 19 and 20).
+- **Version rebuild:** image `v1.0.1-ziyayev-olzhas` was built in the Ubuntu clone.
+  The running application's actuator information reported version `1.0.1`, API
+  checks passed, and the existing database record remained (Screens 22 and 23).
+  This runtime version demonstration was performed in the Ubuntu clone; the
+  committed source version and the Jenkins image tag remain unchanged.
+- **Jenkins:** main job `Ziyayev_Olzhas_Student_API` build #1 succeeded (Screen 28).
+  Demo job `Ziyayev_Olzhas_Student_API_Demo` build #2 checked out
+  `7c39299c2cacdf6636305014cd78529294568d21`: Checkout and Build succeeded, Test
+  failed in `PipelineSafetyTest`, and Docker Build/Verify were skipped
+  (Screens 29 and 30).
+- **Jenkins recovery:** Demo build #3 checked out fixed revision
+  `d75aab0c27a85544962e334a65c67eca08dc3a7b` from
+  `feature/ziyayev-olzhas-ci-demo` and completed successfully with no test errors
+  (Screen 31). Demo build #1 had an SCM configuration error and is not the
+  controlled test-failure demonstration. Disable Lightweight checkout when
+  selecting the failing revision by its full commit hash.
+
+## Remaining submission checks
+
+- Capture an actual automatically SCM-triggered main build after a new commit.
+  The Jenkinsfile polls SCM every two minutes; a manual build is not evidence
+  of the automatic trigger.
+- Include the reviewed screenshots and final results in the English Word report.
+
+No screenshots or output are invented. See `docs/DEMONSTRATION.md` for the
+demonstration commands and `docs/JENKINS_SETUP.md` for the pipeline setup.
