@@ -67,12 +67,16 @@ The earlier Windows logs above remain separate from these Linux demonstrations.
   controlled test-failure demonstration. Disable Lightweight checkout when
   selecting the failing revision by its full commit hash.
 
-## Remaining submission checks
+## Automatic trigger verified
 
-- Capture an actual automatically SCM-triggered main build after a new commit.
-  The Jenkinsfile polls SCM every two minutes; a manual build is not evidence
-  of the automatic trigger.
-- Include the reviewed screenshots and final results in the English Word report.
+- Main build #2 starts with `Started by an SCM change` in its actual console
+  (Screen 34). The main job's history shows builds #1, #2 and #3 as successful
+  with 11 passing tests (Screen 33).
+- Main build #3 checked out the published documentation revision
+  `930ebc439a8e5ec12e0f34b698c2dbdc4d3db5fc` and completed successfully
+  (Screen 32). This build was started by the user; the automatic-trigger
+  evidence is build #2, not build #3.
+- The English submission report includes the reviewed screenshot evidence.
 
 No screenshots or output are invented. See `docs/DEMONSTRATION.md` for the
 demonstration commands and `docs/JENKINS_SETUP.md` for the pipeline setup.

@@ -44,7 +44,10 @@ commits: `controlledFailure=true` in `gradle.properties`, then its correction to
 To show the historical failing revision without changing main:
 
 1. Find the failing commit with `git log --oneline feature/ziyayev-olzhas-ci-demo`.
-2. Set the demo job SCM Branch Specifier to that full commit hash.
+2. Set the demo job SCM Branch Specifier to that full commit hash. Disable
+   **Lightweight checkout** below Script Path when selecting this historical
+   revision. With lightweight checkout enabled, Git may incorrectly fetch the
+   commit hash as a branch name and fail before loading the Jenkinsfile.
 3. Run the demo job. Build/assemble succeeds, Test fails and Docker Build/Verify
    do not execute. Save the console, assertion message and JUnit report.
 4. Set the branch specifier back to `*/feature/ziyayev-olzhas-ci-demo`, whose tip
